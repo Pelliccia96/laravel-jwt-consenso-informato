@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
+
+Route::group(['middleware' => 'jwt'], function () {
+    Route::get('user', [AuthController::class, 'getAuthenticatedUser']);
+});
+
+
+/* Route::get('/protected-route', function () {
+    // Questa rotta è protetta da autenticazione JWT
+})->middleware('jwt.auth'); */

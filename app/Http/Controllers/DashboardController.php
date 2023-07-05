@@ -14,7 +14,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $users = Auth::user();
+        $users = Auth::guard('jwt')->user();
         
         $user_id = auth()->user()->id;
         $patients = Patient::where('user_id', $user_id)
