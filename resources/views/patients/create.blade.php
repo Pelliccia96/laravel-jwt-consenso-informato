@@ -27,7 +27,7 @@
     @endif
     <div class="d-flex justify-content-center gap-3 mt-5">
         <h5 class="text-dark">Medico di riferimento:</h5>
-        <p class="fw-semibold"><i>{{ $user->name ?? 'Nome Utente non disponibile' }} - {{ $user->department->department ?? 'Dipartimento non disponibile'}}</i></p>
+        <p class="fw-semibold"><i>{{ $user->name ?? 'User non disponibile' }} - {{ $user->department->department ?? 'Dipartimento non disponibile'}}</i></p>
     </div>
     <div>
         <form id="consent-form" action="{{ route('patients.store') }}" method="POST" class="p-5" enctype="multipart/form-data">

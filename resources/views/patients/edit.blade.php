@@ -154,7 +154,7 @@
                 <div class="mb-4 col-md-3">
                     <label class="form-label">E-mail: </label>
                     <input type="text" id="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                        value="{{ $errors->has('email') ? '' : (old('email') ? old('email', $patient->email) : '') }}">
+                        value="{{ $errors->has('email') ? '' : old('email', $patient->email) }}">
                     @error('email')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -181,8 +181,8 @@
             </div>
 
             <div class="my-5 text-center">
-                <button type="submit" class="btn btn-primary me-3">Salva</button>
-                <a class="btn btn-secondary" href="{{ url('dashboard') }}">Annulla</a>
+                <button type="submit" class="btn btn-primary me-5 p-4 px-5 fw-semibold">Salva</button>
+                <a class="btn btn-secondary p-4 px-5" href="{{ url('dashboard') }}">Annulla</a>
             </div>
         </form>
     </div>

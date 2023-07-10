@@ -27,7 +27,8 @@ class PatientController extends Controller
      */
     public function create()
     {
-        $user = Auth::guard('jwt')->user();
+        // $user = Auth::guard('jwt')->user();
+        $user = Auth::user();
 
         return view('patients.create', compact('user'));
     }
@@ -45,7 +46,8 @@ class PatientController extends Controller
         $patient = Patient::create($data);
 
         // Associa il dottore attualmente loggato al paziente
-        $user = Auth::guard('jwt')->user();
+        // $user = Auth::guard('jwt')->user();
+        $user = Auth::user();
         $patient->user()->associate($user);
 
         $patient->save();
@@ -78,7 +80,8 @@ class PatientController extends Controller
      */
     public function show(Patient $patient)
     {
-        $users = Auth::guard('jwt')->user();
+        // $users = Auth::guard('jwt')->user();
+        $users = Auth::user();
 
         $user_id = auth()->user()->id;
         $patients = Patient::where('user_id', $user_id)
@@ -97,7 +100,8 @@ class PatientController extends Controller
      */
     public function edit(Patient $patient)
     {
-        $user = Auth::guard('jwt')->user();
+        // $user = Auth::guard('jwt')->user();
+        $user = Auth::user();
 
         // Verifica se l'utente loggato è autorizzato a modificare il paziente O se è un admin
         if ($patient->user_id != $user->id && $user->email !== 'admin@gmail.com') {
