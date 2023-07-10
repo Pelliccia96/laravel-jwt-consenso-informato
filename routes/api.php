@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+// use Tymon\JWTAuth\Http\Middleware\Authenticate;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,10 @@ Route::group(['middleware' => 'jwt'], function () {
 });
 
 
+Route::get('/protected-route', function () {
+    return response()->json(['message' => 'This route is protected by JWT Authentication']);
+})->middleware('jwt.auth');
+
 /* Route::get('/protected-route', function () {
     // Questa rotta è protetta da autenticazione JWT
-})->middleware('jwt.auth'); */
+})->middleware(Authenticate::class . ':jwt'); */
