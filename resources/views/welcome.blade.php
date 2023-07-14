@@ -30,7 +30,7 @@
 <div class="content">
     <div class="container my-5">
         <div class="col-md-4 col-sm-8 ">
-            <div class="text-dark"><span class="fw-bold"><i>KG Partners srl </i></span>&#8226; <i><span
+            <div class="text-dark"><span class="fw-bold"><i>Boolean Careers</i></span> &#8226; <i><span
                         class="fw-semibold">Francesco Pelliccia</span></i> <br> <small>Copyright 2023
                     &#169; Privacy policy &#174;</small></div>
         </div>
